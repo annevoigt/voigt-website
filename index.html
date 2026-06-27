@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anne Voigt | AI Systems Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #1a9898;
+      --teal-light: #e8f5f5;
+      --dark: #1c1c1c;
+      --mid: #555;
+      --light: #f7f7f7;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 6vw;
+      border-bottom: 1px solid #e8e8e8;
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav img.logo {
+      height: 48px;
+      width: auto;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--mid);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--teal); }
+
+    nav .nav-links { display: flex; gap: 2rem; }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      padding: 5rem 6vw;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-photo {
+      flex-shrink: 0;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid var(--teal-light);
+      box-shadow: 0 8px 32px rgba(26,152,152,0.12);
+    }
+
+    .hero-text h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text .title {
+      font-size: 1rem;
+      color: var(--teal);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      color: var(--mid);
+      max-width: 480px;
+    }
+
+    /* DIVIDER */
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: var(--teal);
+      border-radius: 2px;
+      margin: 0 auto 1rem;
+    }
+
+    /* WHAT I DO */
+    .section {
+      padding: 4rem 6vw;
+    }
+
+    .section.alt { background: var(--light); }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+      text-align: center;
+    }
+
+    .section .sub {
+      text-align: center;
+      color: var(--mid);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 20px rgba(26,152,152,0.1);
+      border-color: var(--teal);
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--dark);
+    }
+
+    .card p {
+      font-size: 0.875rem;
+      color: var(--mid);
+      line-height: 1.55;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--mid);
+      font-size: 0.975rem;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .tag {
+      background: var(--teal-light);
+      color: var(--teal);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+    }
+
+    .about-accent {
+      background: var(--teal);
+      border-radius: 16px;
+      padding: 2.5rem;
+      color: var(--white);
+    }
+
+    .about-accent .big {
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+
+    .about-accent p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem 6vw;
+      border-top: 1px solid #e8e8e8;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    footer a { color: var(--teal); text-decoration: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 720px) {
+      .hero { flex-direction: column; gap: 2rem; padding: 3rem 6vw; text-align: center; }
+      .hero-text p { margin: 0 auto; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img src="logo.png" alt="AV AI Consulting" class="logo" />
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="mailto:anne@anne-voigt.com">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="photo.jpeg" alt="Anne Voigt" class="hero-photo" />
+    <div class="hero-text">
+      <div class="title">AI Systems Engineer &amp; Consultant</div>
+      <h1>Anne Voigt</h1>
+      <p>
+        Independent AI consultant specializing in agentic systems, research tooling, and
+        production AI infrastructure. Available for engagements across research, government,
+        and industry sectors.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section alt" id="services">
+    <div class="section-inner">
+      <h2>Services</h2>
+      <div class="divider"></div>
+      <br />
+      <div class="cards">
+        <div class="card">
+          <h3>Agentic Systems</h3>
+          <p>Design and implementation of multi-agent architectures, LLM orchestration pipelines, and autonomous research tooling.</p>
+        </div>
+        <div class="card">
+          <h3>Research &amp; Analysis</h3>
+          <p>Applied AI for scientific and academic research, including data pipelines, natural language interfaces, and domain-specific tooling.</p>
+        </div>
+        <div class="card">
+          <h3>Geospatial AI</h3>
+          <p>AI-assisted geospatial analysis and GIS integration for intelligence, environmental, and infrastructure applications.</p>
+        </div>
+        <div class="card">
+          <h3>Government &amp; Defense</h3>
+          <p>AI solution delivery in DoD and federal contexts, with emphasis on security, reliability, and mission requirements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <h2>Background</h2>
+      <div class="divider"></div>
+      <br />
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Anne Voigt is an AI Systems Engineer and independent consultant based in Southern
+            California. Her background spans mathematics, data science, and engineering, providing
+            a rigorous foundation for technically sound and practically deployable AI systems.
+          </p>
+          <p>
+            She has delivered AI solutions across the Department of Defense, academic research
+            institutions, and geospatial intelligence sectors, with consistent emphasis on
+            reliability, precision, and mission-critical requirements.
+          </p>
+          <div class="tags">
+            <span class="tag">Southern California</span>
+            <span class="tag">Mathematics</span>
+            <span class="tag">Data Science</span>
+            <span class="tag">Engineering</span>
+            <span class="tag">DoD</span>
+            <span class="tag">Academia</span>
+            <span class="tag">GIS</span>
+          </div>
+        </div>
+        <div class="about-accent">
+          <div class="big">Available for Consulting</div>
+          <p>
+            Accepting engagements in AI systems engineering, agentic workflows, research tooling,
+            and geospatial AI across research, government, and industry sectors.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Anne Voigt &nbsp;·&nbsp; <a href="mailto:anne@anne-voigt.com">anne@anne-voigt.com</a></p>
+  </footer>
+
+</body>
+</html>
